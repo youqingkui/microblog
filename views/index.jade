@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  if !user
+    div.jumbotron.
+      <h1>欢迎来到 Microblog</h1>
+      <p class=#{title}>Microblog 是一个基于 Node.js 的微博系统。</p>
+      <p>
+        <a class="btn btn-primary btn-large" href="/login">登录</a>
+        <a class="btn btn-default" href="/reg">立即注册</a>
+      </p>
+  else
+    if infoMsg
+      div.alert.alert-danger= infoMsg
+    div.jumbotron
+      include say
+  div.row
+    include post
+    
+
